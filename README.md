@@ -1,6 +1,6 @@
-# Options Trading Bot
+# Adaptive Options Trading System with Advanced American Pricing Models and Volatility-Specific Simulations
 
-This is an options trading bot for American stock options that uses advanced models and techniques to make profitable trades in both low and high volatility markets. The bot is designed to be flexible, efficient, and easy to deploy and maintain.
+This is an options trading simulator for American stock options that uses advanced models and techniques to make profitable trades in both low and high volatility markets. It is designed to be flexible, efficient, and easy to deploy and maintain.
 
 ## Models
 
@@ -45,12 +45,12 @@ Monte Carlo simulations perform well in high volatility environments for several
 2. **Capture of Volatility Dynamics**: By simulating the underlying asset's price paths directly, Monte Carlo simulations can accurately capture the effects of high volatility, including jumps, stochastic volatility, and other non-standard dynamics.
 3. **Convergence**: With a sufficiently large number of simulated paths, Monte Carlo simulations can converge to the true option value, providing reliable results even in highly volatile market conditions.
 
-## Bot Implementation
+## System Implementation
 
-The core functionality of the options trading bot is implemented in the `run_bot` function, which takes the following parameters:
+The core functionality of the simulator is implemented in the `run_bot` function, which takes the following parameters:
 
 - `ticker_symbol` (str): The ticker symbol of the stock to trade options on.
-- `backtest` (bool, optional): Whether to run the bot in backtest mode. Default is `False`.
+- `backtest` (bool, optional): Whether to run the system in backtest mode. Default is `False`.
 - `start_date` (str, optional): The start date of the backtest period (for backtesting purposes only).
 - `end_date` (str, optional): The end date of the backtest period (for backtesting purposes only).
 - `freq` (str, optional): The frequency of the data. Default is '1d' for daily data (for backtesting purposes only).
@@ -63,13 +63,13 @@ The `run_bot` function performs the following steps:
 4. **Identify Trading Opportunities**: It compares the calculated option price with the market price and identifies potential trading opportunities based on a predefined significance level.
 5. **Return Trading Signals**: The function returns a list of option contract symbols that represent potential trading opportunities.
 
-The bot also incorporates risk management by utilizing the `manage_greeks` function from the `bot_management.greek_management` module. This function calculates and manages the Greeks (Delta, Gamma, Vega, Theta, and Rho) to adjust positions and hedge risk accordingly.
+The simulator also incorporates risk management by utilizing the `manage_greeks` function from the `bot_management.greek_management` module. This function calculates and manages the Greeks (Delta, Gamma, Vega, Theta, and Rho) to adjust positions and hedge risk accordingly.
 
-Additionally, the bot retrieves the 10-year U.S. Treasury yield from the FRED API to use as the risk-free rate for option pricing calculations.
+Additionally, the system retrieves the 10-year U.S. Treasury yield from the FRED API to use as the risk-free rate for option pricing calculations.
 
 ## Backtesting Engine
 
-The options trading bot includes a backtesting engine that allows you to evaluate the performance of your trading strategies on historical market data before deploying them in live markets. This feature is essential for testing and refining your strategies, assessing risk, and gaining confidence in your bot's performance.
+The options trading system includes a backtesting engine that allows you to evaluate the performance of your trading strategies on historical market data before deploying them in live markets. This feature is essential for testing and refining your strategies, assessing risk, and gaining confidence in your system's performance.
 
 The backtesting component is implemented in the `backtest_bot` function, which takes the following parameters:
 
@@ -85,13 +85,13 @@ The `backtest_bot` function downloads historical data for the specified asset an
 - Number of losing trades
 - Total profit
 
-These metrics provide valuable insights into the bot's performance and can help you fine-tune your strategies or adjust risk management parameters as needed.
+These metrics provide valuable insights into the simulator's performance and can help you fine-tune your strategies or adjust risk management parameters as needed.
 
 ## Risk Management with Greeks
 
-Effective risk management is crucial in options trading, and this bot incorporates the calculation and utilization of Greeks to manage risk and adjust positions accordingly. The Greeks refer to a set of risk measures that describe the sensitivity of an option's price to various factors, such as the underlying asset's price, volatility, time to expiration, and interest rates.
+Effective risk management is crucial in options trading, and this system incorporates the calculation and utilization of Greeks to manage risk and adjust positions accordingly. The Greeks refer to a set of risk measures that describe the sensitivity of an option's price to various factors, such as the underlying asset's price, volatility, time to expiration, and interest rates.
 
-The risk management component of the bot focuses on the following Greeks:
+The risk management component of the simulator focuses on the following Greeks:
 
 - **Delta**: Measures the sensitivity of an option's price to changes in the underlying asset's price.
 - **Gamma**: Measures the rate of change in the option's delta.
@@ -99,7 +99,7 @@ The risk management component of the bot focuses on the following Greeks:
 - **Theta**: Measures the sensitivity of an option's price to the passage of time.
 - **Rho**: Measures the sensitivity of an option's price to changes in interest rates.
 
-The bot provides functions to manage each of these Greeks, allowing you to adjust your positions and hedge your risk accordingly. For example, the `manage_delta` function calculates the appropriate position size and hedge quantity based on your desired delta exposure and account size.
+The system provides functions to manage each of these Greeks, allowing you to adjust your positions and hedge your risk accordingly. For example, the `manage_delta` function calculates the appropriate position size and hedge quantity based on your desired delta exposure and account size.
 
 Similarly, the `manage_gamma`, `manage_vega`, `manage_theta`, and `manage_rho` functions help you manage your exposure to changes in volatility, time decay, and interest rates, respectively.
 
@@ -109,7 +109,7 @@ For detailed information on how to interpret the Greek values, please refer to [
 
 ## Getting Started
 
-Follow these steps to set up and run the options trading bot:
+Follow these steps to set up and run the options trading simulator:
 
 1. Clone the repository:
 `git clone https://github.com/your-username/options-trading-bot.git`
@@ -120,9 +120,9 @@ Follow these steps to set up and run the options trading bot:
 3. Run the Docker container:
 `docker run -it options-trading-bot`
 
-4. Configure the bot by modifying the `config.py` file with your desired settings, such as trading parameters, data sources, and broker credentials.
+4. Configure the system by modifying the `config.py` file with your desired settings, such as trading parameters, data sources, and broker credentials.
 
-5. Run the bot:
+5. Run the simulator:
 `python bot.py`
 
 ## Contributing
